@@ -13,8 +13,8 @@ import miniMuslimsImage from "./projects/images/minimuslims.png";
 
 export const PROFILE = {
   name: "Gizem",
-  title: "Web Designer & Developer",
-  tagline: "I build beautiful, functional, user-focused digital experiences.",
+  title: "Developer • Designer • Innovator",
+  tagline: "I bring ideas to life through code, design, and technology — from sleek web apps to creative digital experiences.",
   email: "gizemtuguz@gmail.com",
   phone: "+90 5068489115",
   location: "Eskişehir, Türkiye",
@@ -25,9 +25,64 @@ export const PROFILE = {
 };
 
 export const SKILLS = [
-  { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Vite", "Tailwind", "Sass"] },
-  { group: "Design", items: ["Figma", "UX/UI", "Design Systems", "Prototyping"] },
-  { group: "Tools", items: ["Git", "GitHub", "VS Code", "Vercel", "Netlify"] },
+  {
+    group: "Frontend",
+    items: [
+      "React",
+      "Next.js",
+      "TypeScript",
+      "HTML5",
+      "JavaScript",
+      "Tailwind CSS",
+      "Sass/SCSS",
+      "Responsive Design",
+    ],
+  },
+  {
+    group: "Design",
+    items: [
+      "Figma",
+      "Design Systems",
+      "Styleguides",
+      "UX Writing (basic)",
+      "Usability Testing",
+    ],
+  },
+  {
+    group: "AI & Product",
+    items: [
+      "LLM & Prompt Engineering",
+      "OpenAI APIs",
+      "AI Agents/Flows",
+      "Python",
+      "Data Visualization",
+      "AI-powered Applications",
+    ],
+  },
+  {
+    group: "Tools & Workflow",
+    items: [
+      "Git",
+      "GitHub",
+      "VS Code",
+      "pnpm / npm",
+    ],
+  },
+  {
+    group: "Content & Brand",
+    items: ["Canva","Social Media Management", "Social Media Kits", "Asset Pipelines", "Branding Support"]
+  },
+  {
+    group: "Game Development",
+    items: [
+      "Unity 2D/3D",
+      "C# Scripting",
+      "Game Mechanics Design",
+      "Physics & Collisions",
+      "Particle Systems & Effects",
+      "UI/UX for Games",
+    ],
+  },
 ];
 
 export const PROJECTS = [

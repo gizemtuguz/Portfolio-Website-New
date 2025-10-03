@@ -173,17 +173,19 @@ function About() {
     <Section id="about" title="About Me" subdued>
       <div className="about">
         <div className="about__photo" aria-hidden="true">
-          <div className="avatar">
           <div className="avatar" style={{ overflow: "hidden" }}>
             <img src={imageAvatar} alt="Avatar" style={{ width: "110%", height: "110%", objectFit: "cover" }} />
-          </div>
           </div>
         </div>
         <div className="about__text">
           <p>
-            I’m a web designer & developer focused on crafting clean, accessible, and delightful
-            user experiences. I love bridging design systems with modern frontend to ship fast,
-            reliable products.
+            Hi, I’m <strong>Gizem Tuğuz</strong> — a final-year <strong>Computer Engineering</strong> student at Eskişehir Technical University (ESTÜ) and the current President of IEEE ESTÜ Student Branch (2025–2026)💙.
+          </p>
+          <p>
+            I’m passionate about <strong>front-end development</strong>, <strong>UI/UX design</strong>, <strong>artificial intelligence</strong>, and <strong>community building</strong>👩🏻‍💻. Over the years, I’ve been actively involved in multiple IEEE committees and organized large-scale events, bringing together students, professionals, and technology enthusiasts.
+          </p>
+          <p>
+            What excites me the most is combining <strong>technology</strong>, <strong>creativity</strong>, and <strong>leadership</strong> ✨ — whether through coding interactive applications, designing engaging digital experiences, or leading teams that make an impact.
           </p>
           <ul className="socials" aria-label="Social links">
             {PROFILE.socials.map((s) => (
@@ -384,6 +386,9 @@ function Contact() {
 
         <div className="contactinfo">
           <h2>Get in Touch</h2>
+          <p className="contactinfo__blurb">
+            Drop a quick note about your project, collaboration idea, or anything you’re curious about. I’ll reply the moment I see it.
+          </p>
         </div>
 
         <form className="contact" onSubmit={onSubmit} noValidate>
