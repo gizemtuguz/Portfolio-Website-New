@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { PROFILE, SKILLS, PROJECTS, GITHUB } from "./data.js";
 
 import imageAvatar from "./assets/avatar.JPG"; 
+import GithubContributionCalendar from "./componenets/GithubContributionCalendar";
 
 /* === Icon system (stroke + fill support) === */
 function Icon({ name, size = 20 }) {
@@ -223,9 +224,14 @@ function Skills() {
 
 /* === Project Card === */
 function ProjectCard({ p }) {
+  const mediaStyle = p.image ? { backgroundImage: `url(${p.image})` } : undefined;
+  const mediaClassName = `project__media${p.image ? "" : " project__media--empty"}`;
+
   return (
     <article className="project">
-      <div className="project__media" style={{ backgroundImage: `url(${p.image})` }} aria-label={p.title} />
+      <div className={mediaClassName} style={mediaStyle} aria-label={p.title}>
+        {!p.image && <span className="project__media-placeholder">Preview coming soon</span>}
+      </div>
       <div className="project__body">
         <h3 className="project__title">{p.title}</h3>
         <p className="project__desc">{p.description}</p>
@@ -237,6 +243,11 @@ function ProjectCard({ p }) {
           ))}
         </div>
         <div className="project__actions">
+          {p.caseStudy && (
+            <a className="btn btn--ghost" href={p.caseStudy} target="_blank" rel="noopener noreferrer">
+              Case Study <Icon name="external" />
+            </a>
+          )}
           {p.live && (
             <a className="btn btn--ghost" href={p.live} target="_blank" rel="noopener noreferrer">
               Live Demo <Icon name="external" />
@@ -255,13 +266,29 @@ function ProjectCard({ p }) {
 
 /* === Projects === */
 function Projects() {
+  const [showAllProjects, setShowAllProjects] = useState(false);
+  const hasMoreProjects = PROJECTS.length > 3;
+  const visibleProjects = showAllProjects || !hasMoreProjects ? PROJECTS : PROJECTS.slice(0, 3);
+
   return (
-    <Section id="projects" title="Featured Projects" subdued>
+    <Section id="projects" title="My Projects" subdued>
       <div className="projects">
-        {PROJECTS.map((p) => (
+        {visibleProjects.map((p) => (
           <ProjectCard key={p.title} p={p} />
         ))}
       </div>
+      {hasMoreProjects && (
+        <div className="projects__toggle">
+          <button
+            type="button"
+            className="btn btn--ghost"
+            onClick={() => setShowAllProjects((prev) => !prev)}
+            aria-expanded={showAllProjects}
+          >
+            {showAllProjects ? "Show fewer projects" : `Show more projects (${PROJECTS.length - visibleProjects.length})`}
+          </button>
+        </div>
+      )}
     </Section>
   );
 }
@@ -273,6 +300,7 @@ function GithubBlock() {
       <div className="github">
         <Icon name="github" size={32} />
         <p>{GITHUB.blurb}</p>
+        <GithubContributionCalendar username="gizemtuguz" />
         <a className="btn btn--primary" href={GITHUB.profileUrl} target="_blank" rel="noopener noreferrer">
           Visit My GitHub Profile
         </a>
@@ -308,24 +336,9 @@ function Contact() {
   return (
     <Section id="contact">
       <div className="contactlayout">
-        {/* Sol taraf: başlık ve iletişim bilgileri */}
+
         <div className="contactinfo">
           <h2>Get in Touch</h2>
-          <ul>
-            {PROFILE.socials.map((s) => (
-              <li key={s.href}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer">
-                  {s.label}
-                </a>
-              </li>
-            ))}
-            {PROFILE.email && (
-              <li>Email: <a href={`mailto:${PROFILE.email}`}>{PROFILE.email}</a></li>
-            )}
-            {PROFILE.phone && (
-              <li>Phone: <a href={`tel:${PROFILE.phone}`}>{PROFILE.phone}</a></li>
-            )}
-          </ul>
         </div>
 
         {/* Sağ taraf: form */}

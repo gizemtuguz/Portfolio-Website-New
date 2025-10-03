@@ -1,53 +1,103 @@
+import affiliateDashboardCaseStudy from "./projects/Affiliate_Dashboard_Resources_Page.pdf";
+import articleSubmissionCaseStudy from "./projects/Article_Submission_System.pdf";
+import fakeNewsCaseStudy from "./projects/FAKE_NEWS.pdf";
+import galaxyShooterCaseStudy from "./projects/GALAXY_SHOOTER.pdf";
+import graveKeeperCaseStudy from "./projects/GRAVE_KEEPER.pdf";
+import miniMuslimsCaseStudy from "./projects/MINI_MUSLIMS.pdf";
+
+import articleSubmissionImage from "./projects/images/articlesubmission.png";
+import fakeNewsImage from "./projects/images/fakenewsdetection.png";
+import galaxyShooterImage from "./projects/images/galaxyshooter.png";
+import graveKeeperImage from "./projects/images/gravekeeper.png";
+import miniMuslimsImage from "./projects/images/minimuslims.png";
+
 // Centralize your content here so the UI stays clean.
 export const PROFILE = {
-    name: "Gizem",
-    title: "Web Designer & Developer",
-    tagline: "I build beautiful, functional, user‑focused digital experiences.",
-    email: "gizemtuguz@gmail.com",
-    phone: "+90 5068489115", // optional
-    location: "Eskişehir, Türkiye", // optional
-    socials: [
+  name: "Gizem",
+  title: "Web Designer & Developer",
+  tagline: "I build beautiful, functional, user-focused digital experiences.",
+  email: "gizemtuguz@gmail.com",
+  phone: "+90 5068489115",
+  location: "Eskişehir, Türkiye",
+  socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/gizemtuguz" },
     { label: "GitHub", href: "https://github.com/gizemtuguz" },
     { label: "Dribbble", href: "https://dribbble.com/gizemtuguz" },
     { label: "Behance", href: "https://www.behance.net/gizemtuguz" },
-    ],
-    };
-    
-    export const SKILLS = [
-    { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Vite", "Tailwind", "Sass"] },
-    { group: "Design", items: ["Figma", "UX/UI", "Design Systems", "Prototyping"] },
-    { group: "Tools", items: ["Git", "GitHub", "VS Code", "Vercel", "Netlify"] },
-    ];
-    
-    export const PROJECTS = [
-    {
-    title: "Affiliate Dashboard UI",
-    description: "Responsive resource hub with starter bundles and share flows.",
-    stack: ["React", "TypeScript", "SCSS"],
-    image: "https://images.unsplash.com/photo-1526378722484-bd91ca387e72?w=1200&q=80&auto=format&fit=crop",
-    live: "https://example.com",
-    code: "https://github.com/your/repo",
-    },
-    {
-    title: "AI Agents Showcase",
-    description: "Interactive gallery for AI agent templates and demos.",
-    stack: ["React", "Vite", "CSS"],
-    image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?w=1200&q=80&auto=format&fit=crop",
-    live: "https://example.com",
-    code: "https://github.com/your/repo",
-    },
-    {
-    title: "TechFest Landing",
-    description: "High‑impact event page with schedule and speaker cards.",
-    stack: ["React", "Framer Motion", "Netlify"],
-    image: "https://images.unsplash.com/photo-1527689368864-3a821dbccc34?w=1200&q=80&auto=format&fit=crop",
-    live: "https://example.com",
-    code: "https://github.com/your/repo",
-    },
-    ];
-    
-    export const GITHUB = {
-    blurb: "Code speaks louder than words — explore my repos on GitHub.",
-    profileUrl: "https://github.com/your",
-    };
+  ],
+};
+
+export const SKILLS = [
+  { group: "Frontend", items: ["React", "Next.js", "TypeScript", "Vite", "Tailwind", "Sass"] },
+  { group: "Design", items: ["Figma", "UX/UI", "Design Systems", "Prototyping"] },
+  { group: "Tools", items: ["Git", "GitHub", "VS Code", "Vercel", "Netlify"] },
+];
+
+export const PROJECTS = [
+  {
+    title: "Affiliate Dashboard Resources",
+    description:
+      "A partner portal delivering launch playbooks, incentive trackers, and marketing assets so affiliates can self-serve what they need in seconds.",
+    stack: ["React", "TypeScript", "SCSS", "PNPM", "Figma"],
+    image: null,
+    live: null,
+    code: null,
+    caseStudy: affiliateDashboardCaseStudy,
+  },
+  {
+    title: "Article Submission System",
+    description:
+      "An end-to-end workflow where authors upload manuscripts, editors assign reviewers, and everyone tracks revisions through a clean dashboard.",
+    stack: ["Flask", "Python", "MySQL", "Bootstrap"],
+    image: articleSubmissionImage,
+    live: null,
+    code: null,
+    caseStudy: articleSubmissionCaseStudy,
+  },
+  {
+    title: "Galaxy Shooter",
+    description:
+      "An arcade-style space shooter with parallax backgrounds, boss mechanics, and upgradeable ships built as a polished desktop game demo.",
+    stack: ["Unity 3D", "C#", "Blender"],
+    image: galaxyShooterImage,
+    live: null,
+    code: null,
+    caseStudy: galaxyShooterCaseStudy,
+  },
+  {
+    title: "Fake News Detection Platform",
+    description:
+      "A machine-learning pipeline that scores news headlines in real time, visualises dataset insights, and flags risky sources for editors.",
+    stack: ["Python", "Transformers", "PyTorch", "Scikit-learn"],
+    image: fakeNewsImage,
+    live: null,
+    code: null,
+    caseStudy: fakeNewsCaseStudy,
+  },
+
+  {
+    title: "Grave Keeper",
+    description:
+      "A narrative puzzle adventure set in a haunted graveyard where players solve environment riddles and manage limited resources.",
+    stack: ["Unity", "C#", "Particle FX"],
+    image: graveKeeperImage,
+    live: null,
+    code: null,
+    caseStudy: graveKeeperCaseStudy,
+  },
+  {
+    title: "Mini Muslims",
+    description:
+      "A gamified learning app that teaches daily prayers and Islamic values through interactive stories, quizzes, and voice-overs.",
+    stack: ["Unity 2D", "C#", "JSON", "Sound Design"],
+    image: miniMuslimsImage,
+    live: null,
+    code: null,
+    caseStudy: miniMuslimsCaseStudy,
+  },
+];
+
+export const GITHUB = {
+  blurb: "Code speaks louder than words — explore my repos on GitHub.",
+  profileUrl: "https://github.com/gizemtuguz",
+};
