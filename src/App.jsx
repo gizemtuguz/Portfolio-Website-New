@@ -243,11 +243,6 @@ function ProjectCard({ p }) {
           ))}
         </div>
         <div className="project__actions">
-          {p.caseStudy && (
-            <a className="btn btn--ghost" href={p.caseStudy} target="_blank" rel="noopener noreferrer">
-              Case Study <Icon name="external" />
-            </a>
-          )}
           {p.live && (
             <a className="btn btn--ghost" href={p.live} target="_blank" rel="noopener noreferrer">
               Live Demo <Icon name="external" />
@@ -259,6 +254,13 @@ function ProjectCard({ p }) {
             </a>
           )}
         </div>
+        {p.caseStudy && (
+          <div className="project__case">
+            <a className="btn btn--ghost" href={p.caseStudy} target="_blank" rel="noopener noreferrer">
+              Case Study <Icon name="external" />
+            </a>
+          </div>
+        )}
       </div>
     </article>
   );
@@ -312,10 +314,12 @@ function GithubBlock() {
 /* === Contact === */
 function Contact() {
   const [status, setStatus] = useState(null);
+  const [isSending, setIsSending] = useState(false);
 
-  function onSubmit(e) {
+  async function onSubmit(e) {
     e.preventDefault();
-    const fd = new FormData(e.currentTarget);
+    const formEl = e.currentTarget;
+    const fd = new FormData(formEl);
     const name = fd.get("name")?.toString().trim();
     const email = fd.get("email")?.toString().trim();
     const message = fd.get("message")?.toString().trim();
@@ -324,13 +328,54 @@ function Contact() {
       setStatus({ type: "error", msg: "Please fill in all fields." });
       return;
     }
-    if (!/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/.test(email)) {
+    if (!/^[^@]+@[^@]+[.][^@]+$/.test(email)) {
       setStatus({ type: "error", msg: "Please enter a valid email." });
       return;
     }
 
-    setStatus({ type: "success", msg: "Thanks! I’ll get back to you soon." });
-    e.currentTarget.reset();
+    try {
+      setIsSending(true);
+      setStatus(null);
+
+      const submission = new FormData(formEl);
+      submission.set("name", name);
+      submission.set("email", email);
+      submission.set("message", message);
+      submission.set("_replyto", email);
+      submission.set("_subject", "New portfolio message");
+      submission.set("_captcha", "false");
+
+      const response = await fetch("https://formsubmit.co/ajax/gizemtuguz@gmail.com", {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+        },
+        body: submission,
+      });
+
+      if (!response.ok) {
+        throw new Error(`Request failed with status ${response.status}`);
+      }
+
+      const payload = await response.json();
+      if (payload?.success !== "true") {
+        throw new Error(payload?.message || "Unexpected response");
+      }
+
+      setStatus({ type: "success", msg: payload.message || "Thanks! Your message is on its way." });
+      formEl.reset();
+    } catch (error) {
+      console.error("Contact form submission failed", error);
+      setStatus({
+        type: "error",
+        msg:
+          (error instanceof Error && error.message)
+            ? `Sorry, something went wrong: ${error.message}`
+            : "Sorry, something went wrong. Please email me directly at gizemtuguz@gmail.com.",
+      });
+    } finally {
+      setIsSending(false);
+    }
   }
 
   return (
@@ -341,22 +386,29 @@ function Contact() {
           <h2>Get in Touch</h2>
         </div>
 
-        {/* Sağ taraf: form */}
         <form className="contact" onSubmit={onSubmit} noValidate>
           <label>
             <span>Name</span>
-            <input name="name" type="text" placeholder="Your name" required />
+            <input name="name" type="text" placeholder="Your name" required disabled={isSending} />
           </label>
           <label>
             <span>Email</span>
-            <input name="email" type="email" placeholder="you@example.com" required />
+            <input name="email" type="email" placeholder="you@example.com" required disabled={isSending} />
           </label>
           <label className="contact__full">
             <span>Message</span>
-            <textarea name="message" rows="6" placeholder="Tell me about your project..." required />
+            <textarea
+              name="message"
+              rows={6}
+              placeholder="Tell me about your project..."
+              required
+              disabled={isSending}
+            />
           </label>
           <div className="contact__actions">
-            <button className="btn btn--primary" type="submit">Send Message</button>
+            <button className="btn btn--primary" type="submit" disabled={isSending}>
+              {isSending ? "Sending…" : "Send Message"}
+            </button>
             {status && <span className={`formstatus formstatus--${status.type}`}>{status.msg}</span>}
           </div>
         </form>

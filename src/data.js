@@ -4,14 +4,13 @@ import fakeNewsCaseStudy from "./projects/FAKE_NEWS.pdf";
 import galaxyShooterCaseStudy from "./projects/GALAXY_SHOOTER.pdf";
 import graveKeeperCaseStudy from "./projects/GRAVE_KEEPER.pdf";
 import miniMuslimsCaseStudy from "./projects/MINI_MUSLIMS.pdf";
-
+import affiliateDashboardImage from "./projects/images/affiliatedashboard.png";
 import articleSubmissionImage from "./projects/images/articlesubmission.png";
 import fakeNewsImage from "./projects/images/fakenewsdetection.png";
 import galaxyShooterImage from "./projects/images/galaxyshooter.png";
 import graveKeeperImage from "./projects/images/gravekeeper.png";
 import miniMuslimsImage from "./projects/images/minimuslims.png";
 
-// Centralize your content here so the UI stays clean.
 export const PROFILE = {
   name: "Gizem",
   title: "Web Designer & Developer",
@@ -22,8 +21,6 @@ export const PROFILE = {
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/gizemtuguz" },
     { label: "GitHub", href: "https://github.com/gizemtuguz" },
-    { label: "Dribbble", href: "https://dribbble.com/gizemtuguz" },
-    { label: "Behance", href: "https://www.behance.net/gizemtuguz" },
   ],
 };
 
@@ -38,21 +35,31 @@ export const PROJECTS = [
     title: "Affiliate Dashboard Resources",
     description:
       "A partner portal delivering launch playbooks, incentive trackers, and marketing assets so affiliates can self-serve what they need in seconds.",
-    stack: ["React", "TypeScript", "SCSS", "PNPM", "Figma"],
-    image: null,
+    stack: ["React", "TypeScript", "SCSS", "Figma"],
+    image: affiliateDashboardImage,
     live: null,
     code: null,
     caseStudy: affiliateDashboardCaseStudy,
   },
   {
-    title: "Article Submission System",
+    title: "Grave Keeper",
     description:
-      "An end-to-end workflow where authors upload manuscripts, editors assign reviewers, and everyone tracks revisions through a clean dashboard.",
-    stack: ["Flask", "Python", "MySQL", "Bootstrap"],
-    image: articleSubmissionImage,
+      "A narrative puzzle adventure set in a haunted graveyard where players solve environment riddles and manage limited resources.",
+    stack: ["Unity", "C#", "Particle FX"],
+    image: graveKeeperImage,
     live: null,
     code: null,
-    caseStudy: articleSubmissionCaseStudy,
+    caseStudy: graveKeeperCaseStudy,
+  },
+  {
+    title: "Fake News Detection Platform",
+    description:
+      "A machine-learning pipeline that scores news headlines in real time, visualises dataset insights, and flags risky sources for editors.",
+    stack: ["Python", "Transformers", "PyTorch", "Scikit-learn"],
+    image: fakeNewsImage,
+    live: null,
+    code: null,
+    caseStudy: fakeNewsCaseStudy,
   },
   {
     title: "Galaxy Shooter",
@@ -65,25 +72,14 @@ export const PROJECTS = [
     caseStudy: galaxyShooterCaseStudy,
   },
   {
-    title: "Fake News Detection Platform",
+    title: "Article Submission System",
     description:
-      "A machine-learning pipeline that scores news headlines in real time, visualises dataset insights, and flags risky sources for editors.",
-    stack: ["Python", "Transformers", "PyTorch", "Scikit-learn"],
-    image: fakeNewsImage,
+      "An end-to-end workflow where authors upload manuscripts, editors assign reviewers, and everyone tracks revisions through a clean dashboard.",
+    stack: ["Flask", "Python", "MySQL", "Bootstrap"],
+    image: articleSubmissionImage,
     live: null,
     code: null,
-    caseStudy: fakeNewsCaseStudy,
-  },
-
-  {
-    title: "Grave Keeper",
-    description:
-      "A narrative puzzle adventure set in a haunted graveyard where players solve environment riddles and manage limited resources.",
-    stack: ["Unity", "C#", "Particle FX"],
-    image: graveKeeperImage,
-    live: null,
-    code: null,
-    caseStudy: graveKeeperCaseStudy,
+    caseStudy: articleSubmissionCaseStudy,
   },
   {
     title: "Mini Muslims",
