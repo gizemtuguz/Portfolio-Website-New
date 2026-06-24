@@ -13,7 +13,7 @@ import miniMuslimsImage from "./projects/images/minimuslims.png";
 import vlmResearchImage from "./projects/images/vlm-research.png";
 import thesisTrackerImage from "./projects/images/thesis-tracker.png";
 import ieeeEstuImage from "./projects/images/repo-ieee-estu.png";
-import gustoImage from "./projects/images/repo-gusto.png";
+import gustoImage from "./projects/images/repo-gusto.jpg";
 import wordleImage from "./projects/images/repo-wordle.png";
 import foveaImage from "./projects/images/fovea-retina.jpg";
 

@@ -207,6 +207,8 @@ body{counter-reset:sec}
 .project__stack{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}
 .project__actions{display:flex;gap:12px;flex-wrap:wrap;align-items:center;margin-top:auto}
 .project__actions .btn{padding:11px 18px;font-size:12px}
+.projects__toggle{margin-top:clamp(36px,4vw,56px);display:flex;justify-content:center}
+.projects__toggle .btn{min-width:200px;justify-content:center}
 
 /* =============================
    GitHub

@@ -464,16 +464,27 @@ function ProjectCard({ p, index }) {
   );
 }
 
-/* === Projects (filterable card grid) === */
+/* === Projects (filterable card grid with show-all toggle) === */
+const PROJECTS_PREVIEW_COUNT = 6;
+
 function Projects() {
   const [filter, setFilter] = useState("All");
+  const [showAll, setShowAll] = useState(false);
 
   const filtered = useMemo(
     () => (filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.category === filter)),
     [filter]
   );
 
-  useScrollReveal([filter]);
+  const hasMore = filtered.length > PROJECTS_PREVIEW_COUNT;
+  const visible = showAll || !hasMore ? filtered : filtered.slice(0, PROJECTS_PREVIEW_COUNT);
+
+  useScrollReveal([filter, showAll]);
+
+  const selectFilter = (cat) => {
+    setFilter(cat);
+    setShowAll(false);
+  };
 
   return (
     <Section id="projects" title="Selected Work" subdued>
@@ -485,7 +496,7 @@ function Projects() {
             role="tab"
             aria-selected={filter === cat}
             className={`filterchip ${filter === cat ? "is-active" : ""}`}
-            onClick={() => setFilter(cat)}
+            onClick={() => selectFilter(cat)}
           >
             {cat}
           </button>
@@ -493,10 +504,23 @@ function Projects() {
       </div>
 
       <div className="projects" key={filter}>
-        {filtered.map((p, i) => (
+        {visible.map((p, i) => (
           <ProjectCard key={p.title} p={p} index={i} />
         ))}
       </div>
+
+      {hasMore && (
+        <div className="projects__toggle">
+          <button
+            type="button"
+            className="btn btn--ghost"
+            onClick={() => setShowAll((v) => !v)}
+            aria-expanded={showAll}
+          >
+            {showAll ? "Show less" : `Show all (${filtered.length})`}
+          </button>
+        </div>
+      )}
     </Section>
   );
 }
