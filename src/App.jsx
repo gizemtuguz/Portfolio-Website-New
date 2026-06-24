@@ -203,7 +203,7 @@ function Nav() {
 }
 
 /* === Hero === */
-const ROLES = ["Developer", "Designer", "Innovator", "Problem Solver"];
+const ROLES = ["Developer", "Designer", "AI Researcher"];
 
 function useRotatingText(words, interval = 2200) {
   const [index, setIndex] = useState(0);

@@ -10,8 +10,8 @@ import fakeNewsImage from "./projects/images/fakenewsdetection.png";
 import galaxyShooterImage from "./projects/images/galaxyshooter.png";
 import graveKeeperImage from "./projects/images/gravekeeper.png";
 import miniMuslimsImage from "./projects/images/minimuslims.png";
-import vlmResearchImage from "./projects/images/vlm-research.png";
-import thesisTrackerImage from "./projects/images/thesis-tracker.png";
+import vlmResearchImage from "./projects/images/vlm-research.jpg";
+import thesisTrackerImage from "./projects/images/thesis-tracker.jpg";
 import ieeeEstuImage from "./projects/images/repo-ieee-estu.png";
 import gustoImage from "./projects/images/repo-gusto.jpg";
 import wordleImage from "./projects/images/repo-wordle.png";
@@ -19,7 +19,7 @@ import foveaImage from "./projects/images/fovea-retina.jpg";
 
 export const PROFILE = {
   name: "Gizem",
-  title: "Developer • Designer • Innovator",
+  title: "Developer • Designer • AI Researcher",
   tagline: "I build at the intersection of code, design, and AI — from VLM research and computer-vision systems to polished web experiences.",
   email: "gizemtuguz@gmail.com",
   phone: "+90 5068489115",
