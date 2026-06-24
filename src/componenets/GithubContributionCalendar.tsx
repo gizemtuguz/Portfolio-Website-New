@@ -221,19 +221,41 @@ type JogruberResp = {
   contributions?: { date: string; count: number; level: number }[];
 };
 
+type JogruberDay = { date: string; count: number; level: number };
+
+async function fetchJogruberYear(
+  username: string,
+  y: string,
+  signal?: AbortSignal
+): Promise<JogruberDay[]> {
+  const url = `https://github-contributions-api.jogruber.de/v4/${encodeURIComponent(
+    username
+  )}?y=${y}`;
+  const res = await fetch(url, { headers: { Accept: "application/json" }, signal });
+  if (!res.ok) throw new Error(`Jogruber (${y}) responded with ${res.status}`);
+  const data: JogruberResp = await res.json();
+  return Array.isArray(data?.contributions) ? (data.contributions as JogruberDay[]) : [];
+}
+
 async function fetchFromJogruber(
   username: string,
   signal?: AbortSignal
 ): Promise<ContributionCell[]> {
-  const url = `https://github-contributions-api.jogruber.de/v4/${encodeURIComponent(
-    username
-  )}?y=last`;
-  const res = await fetch(url, { headers: { Accept: "application/json" }, signal });
-  if (!res.ok) throw new Error(`Jogruber responded with ${res.status}`);
+  // The rolling `y=last` window and the per-year window are cached separately by
+  // jogruber, and `y=last` can lag behind by hours. Fetch both and overlay the
+  // fresher current-year counts so recent days (incl. today) stay up to date.
+  const currentYear = String(new Date().getUTCFullYear());
+  const [lastList, curList] = await Promise.all([
+    fetchJogruberYear(username, "last", signal),
+    fetchJogruberYear(username, currentYear, signal).catch(() => [] as JogruberDay[]),
+  ]);
+  if (!lastList.length) return [];
 
-  const data: JogruberResp = await res.json();
-  const list = Array.isArray(data?.contributions) ? data.contributions : [];
-  if (!list.length) return [];
+  const curByDate = new Map(curList.map((c) => [c.date, c]));
+  const list = lastList.map((c) => {
+    const fresh = curByDate.get(c.date);
+    return fresh && (fresh.count || 0) >= (c.count || 0) ? fresh : c;
+  });
 
   const parseUTC = (s: string) => {
     const d = new Date(`${s}T00:00:00Z`);
