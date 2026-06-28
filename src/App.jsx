@@ -551,6 +551,7 @@ function GithubActivity({ user, max = 6 }) {
     let active = true;
     fetch(`https://api.github.com/users/${user}/repos?sort=pushed&per_page=24&type=owner`, {
       headers: { Accept: "application/vnd.github+json" },
+      cache: "no-store",
     })
       .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))))
       .then((data) => {
