@@ -10,11 +10,9 @@ type ContributionCell = {
 
 type CalendarStats = {
   total: number;
-  longestStreak: number;
-  currentStreak: number;
 };
 
-const defaultStats: CalendarStats = { total: 0, longestStreak: 0, currentStreak: 0 };
+const defaultStats: CalendarStats = { total: 0 };
 const palette = [0, 1, 2, 3, 4] as const;
 
 type RawWeek = { contributionDays?: RawDay[]; days?: RawDay[]; firstDay?: string };
@@ -38,32 +36,7 @@ function formatNumber(value: number) {
 
 function deriveStats(days: ContributionCell[]): CalendarStats {
   if (!days.length) return defaultStats;
-
-  const sorted = [...days].sort(
-    (a, b) => new Date(a.date).getTime() - new Date(b.date).getTime()
-  );
-
-  let total = 0;
-  let longest = 0;
-  let current = 0;
-  let running = 0;
-
-  for (const day of sorted) {
-    total += day.count;
-    if (day.count > 0) {
-      running += 1;
-      if (running > longest) longest = running;
-    } else {
-      running = 0;
-    }
-  }
-
-  for (let i = sorted.length - 1; i >= 0; i--) {
-    if (sorted[i].count > 0) current += 1;
-    else break;
-  }
-
-  return { total, longestStreak: longest, currentStreak: current };
+  return { total: days.reduce((sum, d) => sum + d.count, 0) };
 }
 
 export default function GithubContributionCalendar({
@@ -114,6 +87,20 @@ export default function GithubContributionCalendar({
 
   const hasData = cells.length > 0;
 
+  // Her 3 günü 1 kareye grupla — tüm yıl, scroll yok
+  const groupedCells = useMemo(() => {
+    if (!cells.length) return [];
+    const sorted = [...cells].sort((a, b) => a.date.localeCompare(b.date));
+    const result: { key: string; count: number; level: number }[] = [];
+    for (let i = 0; i < sorted.length; i += 3) {
+      const chunk = sorted.slice(i, i + 3);
+      const total = chunk.reduce((s, d) => s + d.count, 0);
+      const level = total === 0 ? 0 : total <= 2 ? 1 : total <= 5 ? 2 : total <= 9 ? 3 : 4;
+      result.push({ key: chunk[0].date, count: total, level });
+    }
+    return result;
+  }, [cells]);
+
   const ariaLabel = useMemo(
     () => `GitHub contribution calendar for ${username}`,
     [username]
@@ -143,34 +130,20 @@ export default function GithubContributionCalendar({
             <span className="github-calendar__stat-label">Contributions in the last year</span>
             <span className="github-calendar__stat-value">{formatNumber(stats.total)}</span>
           </div>
-          <div className="github-calendar__stat">
-            <span className="github-calendar__stat-label">Longest streak</span>
-            <span className="github-calendar__stat-value">{stats.longestStreak} days</span>
-          </div>
-          <div className="github-calendar__stat">
-            <span className="github-calendar__stat-label">Current streak</span>
-            <span className="github-calendar__stat-value">{stats.currentStreak} days</span>
-          </div>
         </div>
       )}
 
       {hasData ? (
         <>
           <div className="github-calendar__grid" role="img" aria-label={ariaLabel}>
-            {cells.map((day) => {
-              const safeLevel = palette.includes(day.level as (typeof palette)[number])
-                ? day.level
-                : 0;
-              return (
-                <span
-                  key={day.date}
-                  className={`github-calendar__day github-calendar__day--level-${safeLevel}`}
-                  style={{ gridColumn: String(day.column), gridRow: String(day.row) }}
-                  title={`${day.date}: ${day.count} contribution${day.count === 1 ? "" : "s"}`}
-                  aria-label={`${day.date}, ${day.count} contribution${day.count === 1 ? "" : "s"}`}
-                />
-              );
-            })}
+            {groupedCells.map((cell) => (
+              <span
+                key={cell.key}
+                className={`github-calendar__day github-calendar__day--level-${cell.level}`}
+                title={`${cell.count} contribution${cell.count === 1 ? "" : "s"}`}
+                aria-label={`${cell.count} contribution${cell.count === 1 ? "" : "s"}`}
+              />
+            ))}
           </div>
 
           <div className="github-calendar__legend" aria-hidden="false" role="group" aria-label="Legend">
