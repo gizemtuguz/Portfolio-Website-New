@@ -288,7 +288,6 @@ body{counter-reset:sec}
   .stat:nth-child(3){padding-left:0;border-left:none}
   .contactlayout{grid-template-columns:1fr}
   .contactinfo__blurb{max-width:none}
-  .github__grid{grid-template-columns:1fr;gap:40px}
 }
 
 @media (max-width:760px){
