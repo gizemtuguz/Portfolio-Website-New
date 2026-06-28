@@ -121,8 +121,8 @@ export default function GithubContributionCalendar({
     for (let i = 0; i < sorted.length; i += 3) {
       const chunk = sorted.slice(i, i + 3);
       const total = chunk.reduce((s, d) => s + d.count, 0);
-      const avgLevel = Math.round(chunk.reduce((s, d) => s + d.level, 0) / chunk.length);
-      result.push({ key: chunk[0].date, count: total, level: avgLevel });
+      const maxLevel = Math.max(...chunk.map(d => d.level));
+      result.push({ key: chunk[0].date, count: total, level: maxLevel });
     }
     return result;
   }, [cells]);
