@@ -306,6 +306,7 @@ body{counter-reset:sec}
   .work__aside{align-items:flex-start;text-align:left}
   .work__thumb{display:block;margin:4px 0 4px}
   .github__subtitle{margin-top:8px}
+  .github__grid{grid-template-columns:1fr;gap:24px}
 }
 
 @media (max-width:560px){
