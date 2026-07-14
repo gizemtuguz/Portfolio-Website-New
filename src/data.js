@@ -16,6 +16,7 @@ import ieeeEstuImage from "./projects/images/repo-ieee-estu.png";
 import gustoImage from "./projects/images/repo-gusto.jpg";
 import wordleImage from "./projects/images/repo-wordle.png";
 import foveaImage from "./projects/images/fovea-retina.jpg";
+import awlMidnightImage from "./projects/images/awl-midnight.png";
 
 export const PROFILE = {
   name: "Gizem",
@@ -93,9 +94,22 @@ export const SKILLS = [
 ];
 
 /* Project categories used by the filter bar */
-export const PROJECT_CATEGORIES = ["All", "AI", "Web", "Game"];
+export const PROJECT_CATEGORIES = ["All", "AI", "Web", "Game", "iOS"];
 
 export const PROJECTS = [
+  {
+    title: "AWL Midnight",
+    category: "iOS",
+    tag: "New",
+    year: "2026",
+    description:
+      "An academic vocabulary app for IELTS — 570 AWL + 121 advanced words (691 total, 70 sets) — with a home-screen widget that rotates hourly. Daily word sets, EN→TR / TR→EN / EN→EN quizzes, a Focus list that resurfaces anything you haven't mastered, lock-screen widgets, and on-device speech synthesis, all wrapped in a dark 'Midnight' theme.",
+    stack: ["SwiftUI", "WidgetKit", "AVSpeechSynthesizer", "App Groups"],
+    image: awlMidnightImage,
+    live: null,
+    code: "https://github.com/gizemtuguz/awl-midnight",
+    caseStudy: null,
+  },
   {
     title: "VLM Hybrid Confidence Score",
     category: "AI",
@@ -249,7 +263,7 @@ export const PROJECTS = [
 
 /* Animated headline stats — honest counts that match the project list */
 export const STATS = [
-  { label: "Projects", value: 12, suffix: "" },
+  { label: "Projects", value: 13, suffix: "" },
   { label: "AI / ML", value: 4, suffix: "" },
   { label: "Web Apps", value: 4, suffix: "" },
   { label: "Games", value: 4, suffix: "" },
