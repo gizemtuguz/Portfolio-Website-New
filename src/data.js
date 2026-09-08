@@ -18,6 +18,8 @@ import wordleImage from "./projects/images/repo-wordle.png";
 import foveaImage from "./projects/images/fovea-retina.jpg";
 import awlMidnightImage from "./projects/images/awl-midnight.png";
 import ayneDeck from "./projects/ayne-project-deck.pptx?url";
+import scaPmCertificate from "./projects/sca-pm-certificate.pdf";
+import referenceLetter from "./projects/reference-letter.pdf";
 
 export const PROFILE = {
   name: "Gizem",
@@ -319,6 +321,20 @@ export const PM = {
         "Ran the full annual program on schedule and within budget — sustained by 10+ sponsors and partners and reaching 1000+ people — while keeping a large volunteer team aligned and accountable.",
       tags: ["Program management", "Team leadership", "Stakeholder mgmt", "Budgeting", "Sponsorship"],
     },
+    {
+      title: "Sensorless In-Line Defect Detection (Vision AI)",
+      role: "Project design & planning",
+      period: "2026",
+      team: "SCA Social program project",
+      program: "Designed in the SCA Social AI & Data Science module",
+      challenge:
+        "Manufacturing defects are usually caught too late — at end-of-line inspection, by random sampling, or with expensive process-specific sensors — while human inspection is fatigue-prone and doesn't scale.",
+      action:
+        "Designed a sensorless, camera-only real-time quality-control system end-to-end: the data strategy (labeled step / defect / negative frames and bounding-box annotations), a hybrid architecture (a fine-tuned vision-language model for step & defect classification plus an object-detection model for critical-detail verification), temporal voting to cut false alarms, on-device/edge inference with privacy-by-design, PLC/SCADA integration for in-line prevention, and the KPI framework.",
+      result:
+        "A complete, retrofit-friendly project design for in-line quality control — general-purpose (scenario-defined), low-cost (one camera + edge device per station), with a measurable recall / precision / latency / rework-reduction plan.",
+      tags: ["Problem framing", "Data strategy", "Solution architecture", "VLM + detection", "Edge / on-device", "KPI design", "Risk & privacy"],
+    },
   ],
 
   // Ways of working + tools (chips).
@@ -336,8 +352,18 @@ export const PM = {
   // Credentials. `file` links to a PDF when available (added once the PDFs are
   // dropped into src/projects/). EDIT names/issuer to match the documents exactly.
   certifications: [
-    { name: "Strategic Project Management Program", issuer: "SCA Social", status: "Certified" },
-    { name: "Reference Letter", issuer: "SCA Social Program", status: "Available" },
+    {
+      name: "Project Management Professional Development Program",
+      issuer: "SCA Social · TNC Group · CPD-accredited · 40h",
+      status: "Certified",
+      file: scaPmCertificate,
+    },
+    {
+      name: "Reference Letter",
+      issuer: "TNC Group · SCA Social",
+      status: "PM program",
+      file: referenceLetter,
+    },
   ],
 };
 

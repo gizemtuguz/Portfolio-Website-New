@@ -617,7 +617,13 @@ function ProjectManagement() {
           <ul className="pm__certlist">
             {PM.certifications.map((c) => (
               <li key={c.name} className="pm__cert">
-                <span className="pm__certname">{c.name}</span>
+                {c.file ? (
+                  <a className="pm__certname pm__certname--link" href={c.file} target="_blank" rel="noopener noreferrer">
+                    {c.name} <Icon name="external" />
+                  </a>
+                ) : (
+                  <span className="pm__certname">{c.name}</span>
+                )}
                 <span className="pm__certmeta">{c.issuer} · {c.status}</span>
               </li>
             ))}

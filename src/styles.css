@@ -272,6 +272,9 @@ body{counter-reset:sec}
 .pm__certlist{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
 .pm__cert{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:14px 0;border-bottom:1px solid var(--line)}
 .pm__certname{font-family:var(--serif);font-size:17px;color:var(--ink)}
+.pm__certname--link{display:inline-flex;align-items:center;gap:8px;text-decoration:none;transition:color .2s ease}
+.pm__certname--link:hover{color:var(--accent)}
+.pm__certname--link .icon{width:13px;height:13px;color:var(--accent)}
 .pm__certmeta{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
 
 /* =============================
