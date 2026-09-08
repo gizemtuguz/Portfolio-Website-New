@@ -17,6 +17,7 @@ import gustoImage from "./projects/images/repo-gusto.jpg";
 import wordleImage from "./projects/images/repo-wordle.png";
 import foveaImage from "./projects/images/fovea-retina.jpg";
 import awlMidnightImage from "./projects/images/awl-midnight.png";
+import ayneDeck from "./projects/ayne-project-deck.pptx?url";
 
 export const PROFILE = {
   name: "Gizem",
@@ -277,7 +278,7 @@ export const STATS = [
    ============================================================ */
 export const PM = {
   intro:
-    "Beyond shipping code, I lead people and programs. As IEEE ESTÜ Student Branch President I ran a full year of technical and social events with volunteer teams, sponsors, and real budgets — planning roadmaps, coordinating committees, and delivering on time.",
+    "Beyond shipping code, I lead people and programs. As IEEE ESTÜ Student Branch President I ran a full year of technical and social events with volunteer teams, sponsors, and real budgets. I also trained formally in project management through the SCA Social Strategic Project Management program, where I designed a full project end-to-end — from charter to closure.",
 
   // Headline impact numbers (animated). EDIT to your real figures.
   stats: [
@@ -303,17 +304,20 @@ export const PM = {
       tags: ["Team leadership", "Stakeholder mgmt", "Budgeting", "Roadmapping"],
     },
     {
-      title: "Flagship Tech Event", // EDIT: real event name (e.g. Project Fair, Summit)
-      role: "Organizing Lead",
-      period: "2025",
-      team: "12-person crew",
+      title: "Ayné — AI Virtual Try-On & Size Recommendation",
+      role: "Project Manager",
+      period: "2026 · 9-month plan",
+      team: "6-person team · ~₺5M budget",
+      program: "Designed end-to-end in the SCA Social Strategic Project Management program",
       challenge:
-        "Plan and run a large-scale campus tech event end-to-end — speakers, venue, logistics, and communications — under a fixed date.",
+        "Wrong-size and fit uncertainty drives the majority of online-fashion returns — industry research attributes 50–70% of clothing returns to size or fit — which hurts conversion, margins, and customer trust.",
       action:
-        "Built the master timeline and a RACI, coordinated speakers, venue and vendors, ran risk planning, and kept stakeholders aligned with weekly status updates.",
+        "Owned the complete project design: project charter and SMART goals, work-breakdown structure and activity network, a 9-month schedule (Jan–Sep 2026), a ~₺5M budget across 13 line items, a RACI matrix, a probability×impact risk register, stakeholder and communication plans, and acceptance & closure criteria.",
       result:
-        "Hosted a full house with invited speakers and sponsors; ran on time with strong attendee feedback.", // EDIT with real numbers
-      tags: ["Event ops", "Logistics", "Vendor mgmt", "Comms"],
+        "A board-ready project package for an AI live try-on + size-recommendation MVP — with measurable success targets and a multi-category scale-up roadmap — delivered as the capstone of the program's PM track.",
+      tags: ["Project charter", "WBS & network", "Gantt schedule", "Budgeting", "RACI", "Risk matrix", "Stakeholder mgmt"],
+      targets: ["≥85% size accuracy", "≥20% fewer returns", "≤3s live latency", "+10% conversion"],
+      deck: ayneDeck,
     },
   ],
 

@@ -552,6 +552,7 @@ function ProjectManagement() {
                 <div><dt>When</dt><dd>{c.period}</dd></div>
                 <div><dt>Team</dt><dd>{c.team}</dd></div>
               </dl>
+              {c.program && <p className="pmcase__program">{c.program}</p>}
             </div>
             <div className="pmcase__body">
               <div className="pmcase__car">
@@ -566,11 +567,26 @@ function ProjectManagement() {
                 <span className="pmcase__label">Result</span>
                 <p>{c.result}</p>
               </div>
+              {c.targets?.length > 0 && (
+                <div className="pmcase__targets">
+                  <span className="pmcase__label">Success targets</span>
+                  <div className="chiprow">
+                    {c.targets.map((t) => (
+                      <span key={t} className="chip chip--target">{t}</span>
+                    ))}
+                  </div>
+                </div>
+              )}
               <div className="pmcase__tags">
                 {c.tags.map((t) => (
                   <span key={t} className="chip chip--soft">{t}</span>
                 ))}
               </div>
+              {c.deck && (
+                <a className="pmcase__deck" href={c.deck} target="_blank" rel="noopener noreferrer">
+                  View project deck <Icon name="external" />
+                </a>
+              )}
             </div>
           </li>
         ))}

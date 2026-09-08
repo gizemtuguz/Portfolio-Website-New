@@ -259,7 +259,13 @@ body{counter-reset:sec}
 .pmcase__car{margin-bottom:18px}
 .pmcase__label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
 .pmcase__car p{margin:0;color:var(--muted);font-size:15.5px;line-height:1.6}
+.pmcase__program{margin:14px 0 0;padding-top:14px;border-top:1px solid var(--line);font-family:var(--mono);font-size:12px;line-height:1.5;letter-spacing:.02em;color:var(--accent)}
+.pmcase__targets{margin-bottom:18px}
+.chip--target{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
 .pmcase__tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px}
+.pmcase__deck{display:inline-flex;align-items:center;gap:8px;margin-top:22px;font-family:var(--mono);font-size:12px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line-strong);padding-bottom:3px;transition:.2s ease}
+.pmcase__deck:hover{color:var(--accent);border-color:var(--accent)}
+.pmcase__deck .icon{width:14px;height:14px}
 .pm__ways{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);padding-top:clamp(32px,4vw,48px);border-top:1px solid var(--line)}
 .pm__waystitle{margin:0 0 16px;font-family:var(--mono);font-size:12px;font-weight:500;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
 .pm__certs{margin-top:clamp(32px,4vw,48px)}
