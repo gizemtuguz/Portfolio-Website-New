@@ -280,29 +280,16 @@ export const PM = {
   intro:
     "Beyond shipping code, I lead people and programs. As IEEE ESTÜ Student Branch President I ran a full year of technical and social events with volunteer teams, sponsors, and real budgets. I also trained formally in project management through the SCA Social Strategic Project Management program, where I designed a full project end-to-end — from charter to closure.",
 
-  // Headline impact numbers (animated). EDIT to your real figures.
+  // Headline impact numbers (animated) — real IEEE ESTÜ leadership scale.
   stats: [
-    { label: "People led", value: 40, suffix: "+" },
-    { label: "Events delivered", value: 15, suffix: "+" },
-    { label: "Attendees reached", value: 2000, suffix: "+" },
+    { label: "Members led", value: 600, suffix: "+" },
+    { label: "Core team", value: 30, suffix: "" },
+    { label: "People reached", value: 1000, suffix: "+" },
     { label: "Sponsors & partners", value: 10, suffix: "+" },
   ],
 
   // Case studies use a Challenge → Action → Result structure.
   caseStudies: [
-    {
-      title: "IEEE ESTÜ Student Branch — Presidency",
-      role: "President",
-      period: "2024 – 2025",
-      team: "40+ members · 6 committees",
-      challenge:
-        "Re-energize the student branch and run a full year of technical and social programming with volunteer teams and a limited budget.",
-      action:
-        "Set quarterly roadmaps, ran weekly committee syncs, delegated clear ownership per committee, led sponsor outreach and budgeting, and tracked everything on a shared board.",
-      result:
-        "Delivered 15+ events across the year, grew active membership, and secured multiple sponsorships — on schedule and within budget.",
-      tags: ["Team leadership", "Stakeholder mgmt", "Budgeting", "Roadmapping"],
-    },
     {
       title: "Ayné — AI Virtual Try-On & Size Recommendation",
       role: "Project Manager",
@@ -319,6 +306,19 @@ export const PM = {
       targets: ["≥85% size accuracy", "≥20% fewer returns", "≤3s live latency", "+10% conversion"],
       deck: ayneDeck,
     },
+    {
+      title: "IEEE ESTÜ Student Branch — Presidency",
+      role: "President",
+      period: "2024 – 2025",
+      team: "600+ members · 30-person core team",
+      challenge:
+        "Lead a 600+ member student organization and align a 30-person core team across committees, sponsors, and a full annual program — under a fixed budget and volunteer constraints.",
+      action:
+        "Owned the annual roadmap and goals, delegated clear ownership across committees, ran weekly syncs and shared status tracking, managed sponsor relationships and budgeting, and coordinated cross-functional delivery end-to-end.",
+      result:
+        "Ran the full annual program on schedule and within budget — sustained by 10+ sponsors and partners and reaching 1000+ people — while keeping a large volunteer team aligned and accountable.",
+      tags: ["Program management", "Team leadership", "Stakeholder mgmt", "Budgeting", "Sponsorship"],
+    },
   ],
 
   // Ways of working + tools (chips).
@@ -333,10 +333,11 @@ export const PM = {
   ],
   tools: ["Jira", "Trello", "Notion", "Asana", "Miro", "Slack", "Google Workspace"],
 
-  // Certifications — PLACEHOLDER. Replace/remove; set status to "Certified" when done.
+  // Credentials. `file` links to a PDF when available (added once the PDFs are
+  // dropped into src/projects/). EDIT names/issuer to match the documents exactly.
   certifications: [
-    { name: "Google Project Management Certificate", issuer: "Coursera", status: "In progress" },
-    { name: "Scrum Fundamentals", issuer: "SCRUMstudy", status: "Placeholder" },
+    { name: "Strategic Project Management Program", issuer: "SCA Social", status: "Certified" },
+    { name: "Reference Letter", issuer: "SCA Social Program", status: "Available" },
   ],
 };
 

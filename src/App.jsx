@@ -613,7 +613,7 @@ function ProjectManagement() {
 
       {PM.certifications?.length > 0 && (
         <div className="pm__certs" data-reveal>
-          <h4 className="pm__waystitle">Certifications</h4>
+          <h4 className="pm__waystitle">Credentials</h4>
           <ul className="pm__certlist">
             {PM.certifications.map((c) => (
               <li key={c.name} className="pm__cert">
