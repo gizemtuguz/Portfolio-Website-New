@@ -269,6 +269,73 @@ export const STATS = [
   { label: "Games", value: 4, suffix: "" },
 ];
 
+/* ============================================================
+   Project Management
+   PLACEHOLDER CONTENT — grounded in real IEEE / event experience.
+   Replace numbers, event names, dates, and certifications with the
+   real ones when ready. Every field below is safe to edit.
+   ============================================================ */
+export const PM = {
+  intro:
+    "Beyond shipping code, I lead people and programs. As IEEE ESTÜ Student Branch President I ran a full year of technical and social events with volunteer teams, sponsors, and real budgets — planning roadmaps, coordinating committees, and delivering on time.",
+
+  // Headline impact numbers (animated). EDIT to your real figures.
+  stats: [
+    { label: "People led", value: 40, suffix: "+" },
+    { label: "Events delivered", value: 15, suffix: "+" },
+    { label: "Attendees reached", value: 2000, suffix: "+" },
+    { label: "Sponsors & partners", value: 10, suffix: "+" },
+  ],
+
+  // Case studies use a Challenge → Action → Result structure.
+  caseStudies: [
+    {
+      title: "IEEE ESTÜ Student Branch — Presidency",
+      role: "President",
+      period: "2024 – 2025",
+      team: "40+ members · 6 committees",
+      challenge:
+        "Re-energize the student branch and run a full year of technical and social programming with volunteer teams and a limited budget.",
+      action:
+        "Set quarterly roadmaps, ran weekly committee syncs, delegated clear ownership per committee, led sponsor outreach and budgeting, and tracked everything on a shared board.",
+      result:
+        "Delivered 15+ events across the year, grew active membership, and secured multiple sponsorships — on schedule and within budget.",
+      tags: ["Team leadership", "Stakeholder mgmt", "Budgeting", "Roadmapping"],
+    },
+    {
+      title: "Flagship Tech Event", // EDIT: real event name (e.g. Project Fair, Summit)
+      role: "Organizing Lead",
+      period: "2025",
+      team: "12-person crew",
+      challenge:
+        "Plan and run a large-scale campus tech event end-to-end — speakers, venue, logistics, and communications — under a fixed date.",
+      action:
+        "Built the master timeline and a RACI, coordinated speakers, venue and vendors, ran risk planning, and kept stakeholders aligned with weekly status updates.",
+      result:
+        "Hosted a full house with invited speakers and sponsors; ran on time with strong attendee feedback.", // EDIT with real numbers
+      tags: ["Event ops", "Logistics", "Vendor mgmt", "Comms"],
+    },
+  ],
+
+  // Ways of working + tools (chips).
+  methodologies: [
+    "Agile",
+    "Scrum",
+    "Kanban",
+    "Waterfall",
+    "Roadmapping",
+    "Risk Management",
+    "Stakeholder Management",
+  ],
+  tools: ["Jira", "Trello", "Notion", "Asana", "Miro", "Slack", "Google Workspace"],
+
+  // Certifications — PLACEHOLDER. Replace/remove; set status to "Certified" when done.
+  certifications: [
+    { name: "Google Project Management Certificate", issuer: "Coursera", status: "In progress" },
+    { name: "Scrum Fundamentals", issuer: "SCRUMstudy", status: "Placeholder" },
+  ],
+};
+
 export const GITHUB = {
   blurb: "Code speaks louder than words — explore my repos on GitHub.",
   profileUrl: "https://github.com/gizemtuguz",

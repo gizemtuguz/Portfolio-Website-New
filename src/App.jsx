@@ -1,5 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { PROFILE, SKILLS, PROJECTS, PROJECT_CATEGORIES, STATS, GITHUB } from "./data.js";
+import { PROFILE, SKILLS, PROJECTS, PROJECT_CATEGORIES, STATS, PM, GITHUB } from "./data.js";
 
 import imageAvatar from "./assets/avatar.JPG";
 import GithubContributionCalendar from "./componenets/GithubContributionCalendar";
@@ -151,6 +151,7 @@ const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#skills", label: "Skills" },
   { href: "#projects", label: "Projects" },
+  { href: "#pm", label: "PM" },
   { href: "#github", label: "GitHub" },
   { href: "#contact", label: "Contact" },
 ];
@@ -525,6 +526,92 @@ function Projects() {
   );
 }
 
+/* === Project Management === */
+function ProjectManagement() {
+  return (
+    <Section id="pm" title="Project Management">
+      <p className="pm__intro" data-reveal>{PM.intro}</p>
+
+      <div className="pm__stats" data-reveal>
+        {PM.stats.map((s) => (
+          <div key={s.label} className="stat">
+            <Counter value={s.value} suffix={s.suffix} />
+            <span className="stat__label">{s.label}</span>
+          </div>
+        ))}
+      </div>
+
+      <ol className="pm__cases">
+        {PM.caseStudies.map((c, i) => (
+          <li key={c.title} className="pmcase" data-reveal>
+            <div className="pmcase__head">
+              <span className="pmcase__index">{String(i + 1).padStart(2, "0")}</span>
+              <h3 className="pmcase__title">{c.title}</h3>
+              <dl className="pmcase__meta">
+                <div><dt>Role</dt><dd>{c.role}</dd></div>
+                <div><dt>When</dt><dd>{c.period}</dd></div>
+                <div><dt>Team</dt><dd>{c.team}</dd></div>
+              </dl>
+            </div>
+            <div className="pmcase__body">
+              <div className="pmcase__car">
+                <span className="pmcase__label">Challenge</span>
+                <p>{c.challenge}</p>
+              </div>
+              <div className="pmcase__car">
+                <span className="pmcase__label">Action</span>
+                <p>{c.action}</p>
+              </div>
+              <div className="pmcase__car">
+                <span className="pmcase__label">Result</span>
+                <p>{c.result}</p>
+              </div>
+              <div className="pmcase__tags">
+                {c.tags.map((t) => (
+                  <span key={t} className="chip chip--soft">{t}</span>
+                ))}
+              </div>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div className="pm__ways">
+        <div className="pm__waysgroup" data-reveal>
+          <h4 className="pm__waystitle">Ways of working</h4>
+          <div className="chiprow">
+            {PM.methodologies.map((m) => (
+              <span key={m} className="chip">{m}</span>
+            ))}
+          </div>
+        </div>
+        <div className="pm__waysgroup" data-reveal>
+          <h4 className="pm__waystitle">Tools</h4>
+          <div className="chiprow">
+            {PM.tools.map((t) => (
+              <span key={t} className="chip">{t}</span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {PM.certifications?.length > 0 && (
+        <div className="pm__certs" data-reveal>
+          <h4 className="pm__waystitle">Certifications</h4>
+          <ul className="pm__certlist">
+            {PM.certifications.map((c) => (
+              <li key={c.name} className="pm__cert">
+                <span className="pm__certname">{c.name}</span>
+                <span className="pm__certmeta">{c.issuer} · {c.status}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+    </Section>
+  );
+}
+
 /* === GitHub live activity (real GitHub Events API) === */
 function timeAgo(iso) {
   const seconds = Math.max(0, (Date.now() - new Date(iso).getTime()) / 1000);
@@ -761,6 +848,7 @@ export default function App() {
         <About />
         <Skills />
         <Projects />
+        <ProjectManagement />
         <GithubBlock />
         <Contact />
       </main>
