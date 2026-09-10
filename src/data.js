@@ -309,6 +309,20 @@ export const PM = {
       deck: ayneDeck,
     },
     {
+      title: "Sensorless In-Line Defect Detection (Vision AI)",
+      role: "Project design & planning",
+      period: "2026",
+      team: "SCA Social program project",
+      program: "Designed in the SCA Social AI & Data Science module",
+      challenge:
+        "Manufacturing defects are usually caught too late — at end-of-line inspection, by random sampling, or with expensive process-specific sensors — while human inspection is fatigue-prone and doesn't scale.",
+      action:
+        "Designed a sensorless, camera-only real-time quality-control system end-to-end: the data strategy (labeled step / defect / negative frames and bounding-box annotations), a hybrid architecture (a fine-tuned vision-language model for step & defect classification plus an object-detection model for critical-detail verification), temporal voting to cut false alarms, on-device/edge inference with privacy-by-design, PLC/SCADA integration for in-line prevention, and the KPI framework.",
+      result:
+        "A complete, retrofit-friendly project design for in-line quality control — general-purpose (scenario-defined), low-cost (one camera + edge device per station), with a measurable recall / precision / latency / rework-reduction plan.",
+      tags: ["Problem framing", "Data strategy", "Solution architecture", "VLM + detection", "Edge / on-device", "KPI design", "Risk & privacy"],
+    },
+    {
       title: "IEEE ESTÜ Student Branch — Presidency",
       role: "President",
       period: "2024 – 2025",
@@ -322,18 +336,18 @@ export const PM = {
       tags: ["Program management", "Team leadership", "Stakeholder mgmt", "Budgeting", "Sponsorship"],
     },
     {
-      title: "Sensorless In-Line Defect Detection (Vision AI)",
-      role: "Project design & planning",
+      title: "ROTAKS Yazılım A.Ş. — Organization & Governance Design",
+      role: "Org design & governance",
       period: "2026",
       team: "SCA Social program project",
-      program: "Designed in the SCA Social AI & Data Science module",
+      program: "Designed in the SCA Social Management & Organization module",
       challenge:
-        "Manufacturing defects are usually caught too late — at end-of-line inspection, by random sampling, or with expensive process-specific sensors — while human inspection is fatigue-prone and doesn't scale.",
+        "Design a software company from the ground up — its structure, roles, policies, and operating model — so it can scale with clear accountability and full compliance.",
       action:
-        "Designed a sensorless, camera-only real-time quality-control system end-to-end: the data strategy (labeled step / defect / negative frames and bounding-box annotations), a hybrid architecture (a fine-tuned vision-language model for step & defect classification plus an object-detection model for critical-detail verification), temporal voting to cut false alarms, on-device/edge inference with privacy-by-design, PLC/SCADA integration for in-line prevention, and the KPI framework.",
+        "Built the complete organization file: org chart and C-level structure, department and role definitions, HR and KVKK-compliant policies & procedures, core business processes and work instructions, a financial overview, a strategic plan with goals, a communications framework, training materials, and a business-continuity plan.",
       result:
-        "A complete, retrofit-friendly project design for in-line quality control — general-purpose (scenario-defined), low-cost (one camera + edge device per station), with a measurable recall / precision / latency / rework-reduction plan.",
-      tags: ["Problem framing", "Data strategy", "Solution architecture", "VLM + detection", "Edge / on-device", "KPI design", "Risk & privacy"],
+        "A board-ready organizational blueprint for a software company — governance, processes, finances, and continuity defined end-to-end.",
+      tags: ["Org design", "Governance", "Policies & KVKK", "Process design", "Strategic planning", "Business continuity"],
     },
   ],
 
