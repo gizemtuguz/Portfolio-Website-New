@@ -363,6 +363,19 @@ export const PM = {
   ],
   tools: ["Jira", "Trello", "Notion", "Asana", "Miro", "Slack", "Google Workspace"],
 
+  // The five modules covered by the SCA Social PM certificate (shown as a scope strip).
+  programScope: {
+    label: "SCA Social · PM Professional Development Program",
+    meta: "CPD-accredited · ISO 29993:2017 · 40 hours",
+    modules: [
+      "Project Management",
+      "Business & KVKK Law",
+      "Management & Organization",
+      "AI & Data Science",
+      "Strategic PM & SAP PS Integration",
+    ],
+  },
+
   // Credentials. `file` links to a PDF when available (added once the PDFs are
   // dropped into src/projects/). EDIT names/issuer to match the documents exactly.
   certifications: [

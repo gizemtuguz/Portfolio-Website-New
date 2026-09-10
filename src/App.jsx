@@ -611,6 +611,23 @@ function ProjectManagement() {
         </div>
       </div>
 
+      {PM.programScope && (
+        <div className="pm__scope" data-reveal>
+          <div className="pm__scopehead">
+            <h4 className="pm__waystitle">Program scope</h4>
+            <span className="pm__scopemeta">{PM.programScope.label} · {PM.programScope.meta}</span>
+          </div>
+          <ol className="pm__modules">
+            {PM.programScope.modules.map((m, i) => (
+              <li key={m} className="pm__module">
+                <span className="pm__modulenum">{String(i + 1).padStart(2, "0")}</span>
+                {m}
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+
       {PM.certifications?.length > 0 && (
         <div className="pm__certs" data-reveal>
           <h4 className="pm__waystitle">Credentials</h4>

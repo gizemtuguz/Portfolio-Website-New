@@ -276,6 +276,13 @@ body{counter-reset:sec}
 .pm__certname--link:hover{color:var(--accent)}
 .pm__certname--link .icon{width:13px;height:13px;color:var(--accent)}
 .pm__certmeta{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+.pm__scope{margin-top:clamp(32px,4vw,48px)}
+.pm__scopehead{display:flex;align-items:baseline;justify-content:space-between;gap:12px 24px;flex-wrap:wrap;margin-bottom:4px}
+.pm__scopehead .pm__waystitle{margin:0}
+.pm__scopemeta{font-family:var(--mono);font-size:11.5px;letter-spacing:.03em;text-transform:uppercase;color:var(--muted)}
+.pm__modules{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px 32px}
+.pm__module{display:flex;align-items:baseline;gap:10px;font-family:var(--serif);font-size:17px;color:var(--ink)}
+.pm__modulenum{font-family:var(--mono);font-size:12px;color:var(--accent);flex:none}
 
 /* =============================
    Contact
